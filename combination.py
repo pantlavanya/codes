@@ -1,3 +1,4 @@
+#Find Combinations of 2 Lists
 def combinations(l,n):
     res = []
     for item in l[n]:
