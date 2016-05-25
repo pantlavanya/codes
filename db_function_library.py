@@ -51,5 +51,5 @@ class DbFunctions(object):
 db = DbFunctions("localhost","root","root","clients_edit_place_db")
 result = db.mysql_qry("",1)
 print result;
-result = db.mysql_insert("cep_languages","`lang_name`,`lang_code`","'Espanish','es'")
+result = db.mysql_insert("cep_languages","`lang_name`,`lang_code`","'Espanish','es'") # In place of string we can pass List also
 print result;
