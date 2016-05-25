@@ -1,3 +1,4 @@
+#Simple Library for Python with DB Connection and Querying
 import MySQLdb
 class DbFunctions(object):
     def __init__(self,server,username,password,dbname):
@@ -14,7 +15,7 @@ class DbFunctions(object):
 
     def connection_close(self):
         self.db.close()
-# Python Library for Simple DB Operations
+
     def mysql_qry(self,sql,bool): # 1 for select and 0 for insert update delete
         self.connection_open()
         try:
@@ -33,12 +34,22 @@ class DbFunctions(object):
 
     def mysql_insert(self,table,fields,values):
         sql = "INSERT INTO " + table + " (" + fields + ") VALUES (" + values + ")";
-        #print sql
         return self.mysql_qry(sql,0)
 
+    def mysql_update(self,table,values,conditions):
+        sql = "UPDATE " + table + " SET " + values + " WHERE " + conditions
+        return self.mysql_qry(sql,0)
+
+    def mysql_delete(self,table,condtions):
+        sql = "DELETE FROM " + table + " WHERE " + condition;
+        return self.mysql_qry(sql,0)
+
+    def mysql_select(self,table):
+        sql =  "SELECT * FROM "+table
+        return self.mysql_qry(sql,1)
 
 db = DbFunctions("localhost","root","root","clients_edit_place_db")
-result = db.mysql_qry("SELECT * FROM `cep_languages`",1)
+result = db.mysql_qry("",1)
 print result;
 result = db.mysql_insert("cep_languages","`lang_name`,`lang_code`","'Espanish','es'")
 print result;
